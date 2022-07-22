@@ -7,21 +7,30 @@ header,
     box-sizing: border-box;
     font-family: Calibri;
 }
+
+:root{
+    --primary-color: #edf2fc;
+    --secondary-color: #212121;
+}
+
+.dark-theme{
+    --primary-color: #000106;
+    --secondary-color: #fff;
+}
+#icon{
+    width: 30px;
+    cursor: pointer;
+}
+
 body{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
-    linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
-    linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
-    radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
-    radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
-    background-blend-mode: screen, color-dodge, overlay, difference, normal;
-
+    background-color: var(--primary-color);
 }
 #container{
-    background-color: white;
+    background-color: var(--secondary-color);
     height: 600px;
     width: 300px;
     border: 2px solid black;
@@ -30,7 +39,6 @@ body{
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    isolation: isolate;
 
 }
 #todoField{
@@ -56,6 +64,7 @@ body{
     overflow: auto;
     display: flex;
     align-items: center;
+    color: var(--primary-color);
     justify-content: center;
     flex-direction: column;
 }
