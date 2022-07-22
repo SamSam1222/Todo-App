@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoApp</title>
+    <link rel = 'stylesheet' href = "{% static 'css/style.css' %}">
+    <link rel = 'style.js' href = "{% static 'js/script.css' %}">
+</head>
+<body>
+    <div id = 'container'>
+        <p><img style="border-radius: 8%;border: 1px solid black;" width=280px, height=160px, src="https://i.postimg.cc/Cxbpd1fk/todo.jpg"  alt="no image found" ></p>
+        <h1 style="color: black; text-align: center;"><b>Todo List</b></h1>
+
+        <div id = 'formContainer'>
+            <form method="POST">
+    
+
+                {% csrf_token %}
+                {{form.task}}
+                <button id = 'add' type = 'submit'>add</button>
+            </form>
+        </div>
+        <div id = 'todoItems'>
+            {% for todo in tasks %}
+                <div class = 'item'>
+                    <p>{{todo.task}}</p>
+                    <div class = 'controls'>
+                        <a href = "{% url 'UpdateItem' todo.id %}"><button class = 'edit'>Edit</button></a>
+                        <a href = "{% url 'deleteItem' todo.id %}"><button class = 'delete'>Delete</button></a>
+                    </div>
+                </div>
+            {% endfor %}
+
+
+            <script>
+                function addDarkmodeWidget() {
+                  new Darkmode().showWidget();
+                }
+                window.addEventListener('load', addDarkmodeWidget);
+              </script>
+        
+
+        </div>
+    </div>
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+   </body>
+</html>
+    

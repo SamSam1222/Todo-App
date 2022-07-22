@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoApp</title>
+    <link rel = 'stylesheet' href = "{% static 'css/style.css' %}">
+    <link rel = 'stylesheet' href = "{% static 'js/script.js' %}">
+    
+</head>
+<body>
+    <div id = 'container'>
+        <div>
+        <h1><img style="border-radius: 7%;border: 1px solid white;" width=290px, height=500px, src="https://i.postimg.cc/9M4jqxyS/jpg.jpg"  alt="no image found" ></h1>
+        </div>
+
+        <h1 style="color: purple; text-align: center;"><b>Edit Todo List</b></h1>
+
+        <div id = 'formContainer'>
+            <form method="POST">
+
+                {% csrf_token %}
+                {{updateForm.task}}
+                <button id = 'add' type = 'submit'>add</button>
+                
+            </form>
+        </div>
+    </div>
+
+
+        
+    <script>
+        function addDarkmodeWidget() {
+          new Darkmode().showWidget();
+        }
+        window.addEventListener('load', addDarkmodeWidget);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+</body>
+</html>
